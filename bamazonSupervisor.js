@@ -1,7 +1,6 @@
 var inquirer = require("inquirer");
 var mysql = require('mysql');
 var table = require('console.table');
-var Table = require('cli-table');
 var total;
 var pSales;
 var con = mysql.createConnection({
@@ -11,7 +10,13 @@ var con = mysql.createConnection({
 	database: "bamazon"
 });
 
-start();
+con.connect( function(err)
+{
+	if(!err){
+	start();
+}
+
+});
 
 function start() {
 
@@ -56,17 +61,20 @@ function start() {
 
 function viewSales() {
 
-	con.query("SELECT * FROM departments", function(err, result, fields) {
+	con.query("SELECT department_id, dept_name, over_head_costs, product_sales FROM departments", function(err, result, fields) {
 		if (err) throw err;
 
-		for (var i = 0; i < result.length; i++) {
-			console.table([{
-				department_id: result[i].department_id,
-				department_name: result[i].dept_name,
-				over_head_costs: result[i].over_head_costs,
-				product_sales: result[i].product_sales
-			}])
-		}
+		console.table(result);
+
+		// for (var i = 0; i < result.length; i++) {
+
+		// 	console.table([{
+		// 		department_id: result[i].department_id,
+		// 		department_name: result[i].dept_name,
+		// 		over_head_costs: result[i].over_head_costs,
+		// 		product_sales: result[i].product_sales
+		// 	}])
+		// }
 	})
 }
 
