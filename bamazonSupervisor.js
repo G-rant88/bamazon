@@ -59,7 +59,6 @@ function viewSales() {
 	con.query("SELECT * FROM departments", function(err, result, fields) {
 		if (err) throw err;
 
-
 		for (var i = 0; i < result.length; i++) {
 			console.table([{
 				department_id: result[i].department_id,

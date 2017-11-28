@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `products`
+-- Table structure for table `departments`
 --
 
-DROP TABLE IF EXISTS `products`;
+DROP TABLE IF EXISTS `departments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_name` varchar(30) DEFAULT NULL,
+CREATE TABLE `departments` (
+  `department_id` int(11) NOT NULL AUTO_INCREMENT,
   `dept_name` varchar(30) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `stock_quant` int(11) DEFAULT NULL,
+  `over_head_costs` int(11) DEFAULT NULL,
   `product_sales` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `departments`
 --
 
-LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'hd tv','electronics',1500,145,0,1),(2,'recliner chair','furniture',1000,120,0,2),(3,'napkins','food supplies',2,500,0,3),(4,'bananas','produce',1,870,0,4),(5,'cups','food supplies',3,145,0,5),(6,'xbox one','electronics',300,147,900,6),(7,'couch','furniture',500,87,1500,7),(8,'asus laptop','electronics',600,89,0,8),(9,'avocado','produce',2,145,22,9),(10,'samsung phone','electronics',600,24,0,10),(11,'keyboard','electronics',20,75,0,11),(12,'mouse','electronics',15,89,0,12),(13,'mug','kitchen',10,5,0,13),(15,'eggs','food',4,92,12,14),(16,'shirt','clothing',10,55,50,15),(17,'shoes','clothing',70,29,0,16),(18,'hat','clothing',15,4,240,17);
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+LOCK TABLES `departments` WRITE;
+/*!40000 ALTER TABLE `departments` DISABLE KEYS */;
+INSERT INTO `departments` VALUES (1,'electronics',1000,0),(2,'furniture',800,0),(3,'food supplies',500,0),(4,'produce',400,0),(5,'kitchen',600,0),(6,'clothing',700,0),(7,'food',500,0),(8,'jewlery',900,0),(9,'watches',500,0),(10,'shoes',300,0);
+/*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
