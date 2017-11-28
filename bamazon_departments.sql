@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `departments`;
 CREATE TABLE `departments` (
   `department_id` int(11) NOT NULL AUTO_INCREMENT,
   `dept_name` varchar(30) DEFAULT NULL,
-  `over_head_costs` int(11) DEFAULT NULL,
-  `product_sales` int(11) DEFAULT NULL,
+  `over_head_costs` decimal(10,2) DEFAULT NULL,
+  `product_sales` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`department_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,7 +37,7 @@ CREATE TABLE `departments` (
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
-INSERT INTO `departments` VALUES (1,'electronics',1000,0),(2,'furniture',800,0),(3,'food supplies',500,0),(4,'produce',400,0),(5,'kitchen',600,0),(6,'clothing',700,0),(7,'food',500,0),(8,'jewlery',900,0),(9,'watches',500,0),(10,'shoes',300,0);
+INSERT INTO `departments` VALUES (1,'electronics',1000.00,0.00),(2,'furniture',800.00,0.00),(3,'food supplies',500.00,0.00),(4,'produce',400.00,0.00),(5,'kitchen',600.00,0.00),(6,'clothing',700.00,0.00),(7,'food',500.00,0.00),(8,'jewlery',900.00,0.00),(9,'watches',500.00,0.00),(10,'shoes',300.00,0.00);
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-28 10:03:06
+-- Dump completed on 2017-11-28 10:32:34

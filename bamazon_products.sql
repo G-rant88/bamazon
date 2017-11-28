@@ -26,9 +26,9 @@ CREATE TABLE `products` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(30) DEFAULT NULL,
   `dept_name` varchar(30) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
   `stock_quant` int(11) DEFAULT NULL,
-  `product_sales` int(11) DEFAULT NULL,
+  `product_sales` decimal(10,2) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
@@ -40,7 +40,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'hd tv','electronics',1500,145,0,1),(2,'recliner chair','furniture',1000,120,0,2),(3,'napkins','food supplies',2,500,0,3),(4,'bananas','produce',1,870,0,4),(5,'cups','food supplies',3,145,0,5),(6,'xbox one','electronics',300,147,900,6),(7,'couch','furniture',500,87,1500,7),(8,'asus laptop','electronics',600,89,0,8),(9,'avocado','produce',2,145,22,9),(10,'samsung phone','electronics',600,24,0,10),(11,'keyboard','electronics',20,75,0,11),(12,'mouse','electronics',15,89,0,12),(13,'mug','kitchen',10,5,0,13),(15,'eggs','food',4,92,12,14),(16,'shirt','clothing',10,55,50,15),(17,'shoes','clothing',70,29,0,16),(18,'hat','clothing',15,4,240,17);
+INSERT INTO `products` VALUES (1,'hd tv','electronics',1500.00,145,0.00,1),(2,'recliner chair','furniture',1000.00,120,0.00,2),(3,'napkins','food supplies',2.00,500,0.00,3),(4,'bananas','produce',1.00,870,0.00,4),(5,'cups','food supplies',3.00,145,0.00,5),(6,'xbox one','electronics',300.00,147,900.00,6),(7,'couch','furniture',500.00,87,1500.00,7),(8,'asus laptop','electronics',600.00,89,0.00,8),(9,'avocado','produce',2.00,145,22.00,9),(10,'samsung phone','electronics',600.00,24,0.00,10),(11,'keyboard','electronics',20.00,75,0.00,11),(12,'mouse','electronics',15.00,89,0.00,12),(13,'mug','kitchen',10.00,5,0.00,13),(15,'eggs','food',4.00,92,12.00,14),(16,'shirt','clothing',10.00,55,50.00,15),(17,'shoes','clothing',70.00,29,0.00,16),(18,'hat','clothing',15.00,4,240.00,17);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-28 10:03:06
+-- Dump completed on 2017-11-28 10:32:34

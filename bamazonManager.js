@@ -72,9 +72,9 @@ function viewProds() {
 			console.log("\nProduct id: " + result[i].product_id);
 			console.log("Product name: " + result[i].product_name);
 			console.log("Department name: " + result[i].dept_name);
-			console.log("Product price: " + result[i].price);
+			console.log("Product price: $" + result[i].price);
 			console.log("Stock quantity: " + result[i].stock_quant);
-			console.log("Product Sales: " + result[i].product_sales);
+			console.log("Product Sales: $" + result[i].product_sales);
 		}
 	});
 
