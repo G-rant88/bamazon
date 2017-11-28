@@ -1,5 +1,6 @@
 var inquirer = require("inquirer");
 var mysql = require('mysql');
+var total;
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "Ben",
@@ -17,7 +18,7 @@ function display() {
 		if (err) throw err;
 
 		for (var i = 0; i < result.length; i++) {
-
+			total = result[i].item_id;
 			console.log("\nProduct id: " + result[i].item_id);
 			console.log("Product name: " + result[i].product_name);
 			console.log("Department name: " + result[i].dept_name);
@@ -43,7 +44,7 @@ function buy() {
 				message: "Type in the Id of the product you would like to buy:",
 				name: "prod",
 				validate: function(num) {
-					if (isNaN(num) || num > 10) {
+					if (isNaN(num) || num > total || num < 1) {
 						return false;
 					} 
 
@@ -56,7 +57,7 @@ function buy() {
 				message: "Type in the amount of units you would like to buy:",
 				name: "amount",
 				validate: function(num) {
-					if (isNaN(num)) {
+					if (isNaN(num) || num < 1) {
 						return false;
 					} 
 
