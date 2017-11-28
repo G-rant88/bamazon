@@ -75,6 +75,7 @@ function viewSales() {
 		// 		product_sales: result[i].product_sales
 		// 	}])
 		// }
+		start();
 	})
 }
 
@@ -107,7 +108,7 @@ function newDept() {
 
 			console.log("\nDepartment added");
 			start();
-	})
+	});
 }
 
 function exit() {

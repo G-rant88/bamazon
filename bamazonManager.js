@@ -96,13 +96,11 @@ function viewProds() {
 function viewLow() {
 
 	con.query("SELECT product_id, product_name, dept_name, price, stock_quant, product_sales FROM products where stock_quant < '6'", function(err, result, fields) {
-		if (err) throw err;
 
 		 // for (var i = 0; i < result.length; i++) {
 
 			// if (result[i].stock_quant < 6) {
 
-				lowflag = true;
 				console.table(result);
 				// console.log("\nProduct id: " + result[i].product_id);
 				// console.log("Product name: " + result[i].product_name);
@@ -113,20 +111,10 @@ function viewLow() {
 			// }
 		 // }
 
-		if (lowflag === false) {
-
-			console.log("\nNo low inventory!!");
-			start();
-		}
-
-		if (lowflag === true) {
 		setTimeout(function() {
 
 			start();
 		}, 500);
-
-	}
-
 	});
 }
 
@@ -171,14 +159,15 @@ function addInv() {
 					if (err) throw err;
 					var sql = "UPDATE products SET stock_quant = '" +
 						(result[0].stock_quant + JSON.parse(data.amount)) +
-						"' WHERE stock_quant = '" + result[0].stock_quant + "'";
+						"' WHERE product_id = '" + data.prod + "'";
 
 					con.query(sql, function(err, result) {
 						if (err) throw err;
 					});
-					console.log("\ninventory updated!");
+					
+				});
+			console.log("\ninventory updated!");
 					start();
-				})
 		});
 }
 
@@ -192,7 +181,6 @@ function addProd() {
 			total = result[i].product_id;
 		}
 	});
-
 
 	inquirer
 		.prompt([
@@ -243,7 +231,7 @@ function addProd() {
 
 			console.log("\nPoduct added!");
 			start();
-		})
+		});
 
 }
 

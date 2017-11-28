@@ -10,8 +10,7 @@ var con = mysql.createConnection({
 	database: "bamazon"
 });
 
-con.connect( function(err)
-{
+con.connect( function(err){
 	if(!err){
 	display();
 
@@ -26,15 +25,15 @@ function display() {
 
 		console.table(result);
 
-		// for (var i = 0; i < result.length; i++) {
-		// 	total = result[i].product_id;
+		 for (var i = 0; i < result.length; i++) {
+		 	total = result[i].product_id;
 		// 	console.log("\nProduct id: " + result[i].product_id);
 		// 	console.log("Product name: " + result[i].product_name);
 		// 	console.log("Department name: " + result[i].dept_name);
 		// 	console.log("Product price: $" + result[i].price);
 		// 	console.log("Stock quantity: " + result[i].stock_quant);
 		// 	console.log("Product Sales: $" + result[i].product_sales);
-		// }
+		 }
 	});
 
 	setTimeout(function() {
@@ -75,7 +74,6 @@ function buy() {
 						return true;
 					}
 				}
-
 			}
 		])
 		.then(function(data) {
@@ -90,7 +88,7 @@ function buy() {
 
 						var sql = "UPDATE products SET stock_quant = '" +
 							(result[0].stock_quant - JSON.parse(data.amount)) +
-							"' WHERE stock_quant = '" + result[0].stock_quant + "'";
+							"' WHERE product_id = '" + data.prod + "'";
 
 						con.query(sql, function(err, result) {
 							if (err) throw err;
@@ -115,9 +113,9 @@ function buy() {
 							if (err) throw err;
 
 						});
-						console.log("\nSales updated!");
+					});
+			console.log("\nSales updated!");
 						agains();
-				})
 			});
 }
 
