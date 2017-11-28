@@ -32,7 +32,7 @@ function start() {
 				type: "list",
 				message: "\nWhat would you like to do?",
 				choices: ["view products for sale", "view low inventory",
-					"add to inventory", "add new product"
+					"add to inventory", "add new product", "exit"
 				],
 				name: "options",
 
@@ -57,6 +57,11 @@ function start() {
 				case 'add new product':
 					addProd();
 					break;
+
+				case 'exit':
+					exit();
+					break;
+
 			}
 		})
 }
@@ -100,7 +105,6 @@ function viewLow() {
 				console.log("Product price: " + result[i].price);
 				console.log("Stock quantity: " + result[i].stock_quant);
 			}
-
 		}
 
 		if (lowflag === false) {
@@ -109,15 +113,15 @@ function viewLow() {
 			start();
 		}
 
-	});
-
-	if (lowflag === true) {
+		if (lowflag === true) {
 		setTimeout(function() {
 
 			start();
 		}, 500);
 
 	}
+
+	});
 }
 
 function addInv() {
@@ -225,4 +229,10 @@ function addProd() {
 			start();
 		})
 
+}
+
+function exit(){
+
+	console.log("\nBYE!!");
+			con.end();
 }
