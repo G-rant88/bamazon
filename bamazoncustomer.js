@@ -41,7 +41,7 @@ function buy() {
 
 			{
 				type: "input",
-				message: "Type in the Id of the product you would like to buy:",
+				message: "\nType in the Id of the product you would like to buy:",
 				name: "prod",
 				validate: function(num) {
 					if (isNaN(num) || num > total || num < 1) {
@@ -54,7 +54,7 @@ function buy() {
 				}
 			}, {
 				type: "input",
-				message: "Type in the amount of units you would like to buy:",
+				message: "\nType in the amount of units you would like to buy:",
 				name: "amount",
 				validate: function(num) {
 					if (isNaN(num) || num < 1) {
@@ -101,7 +101,7 @@ function buy() {
 function agains() {
 	inquirer.prompt([{
 		type: "confirm",
-		message: "Would you like to see the products again?",
+		message: "\nWould you like to see the products again?",
 		name: "conf",
 		default: true
 
