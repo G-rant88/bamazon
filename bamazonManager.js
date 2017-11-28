@@ -79,6 +79,7 @@ function viewProds() {
 			console.log("Department name: " + result[i].dept_name);
 			console.log("Product price: " + result[i].price);
 			console.log("Stock quantity: " + result[i].stock_quant);
+			console.log("Product Sales: " + result[i].product_sales);
 		}
 	});
 
@@ -104,6 +105,7 @@ function viewLow() {
 				console.log("Department name: " + result[i].dept_name);
 				console.log("Product price: " + result[i].price);
 				console.log("Stock quantity: " + result[i].stock_quant);
+				console.log("Product Sales: " + result[i].product_sales);
 			}
 		}
 
@@ -223,7 +225,7 @@ function addProd() {
 		])
 		.then(function(data) {
 
-			con.query("INSERT INTO products (product_name, dept_name, price, stock_quant) values('" + data.prod + "', '" + data.dept + "'," + data.price + "," + data.amount + ")");
+			con.query("INSERT INTO products (product_name, dept_name, price, stock_quant, product_sales) values('" + data.prod + "', '" + data.dept + "'," + data.price + "," + data.amount + ", 0)");
 
 			console.log("\nPoduct added!");
 			start();

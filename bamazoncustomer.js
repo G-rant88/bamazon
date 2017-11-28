@@ -1,6 +1,7 @@
 var inquirer = require("inquirer");
 var mysql = require('mysql');
 var total;
+var sales;
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "Ben",
@@ -24,6 +25,7 @@ function display() {
 			console.log("Department name: " + result[i].dept_name);
 			console.log("Product price: " + result[i].price);
 			console.log("Stock quantity: " + result[i].stock_quant);
+			console.log("Product Sales: " + result[i].product_sales);
 		}
 	});
 
@@ -73,6 +75,8 @@ function buy() {
 			con.query("SELECT * FROM products where item_id =" + data.prod + "",
 				function(err, result, fields) {
 					if (err) throw err;
+					sales = data.amount * result[0].price;
+
 					if (JSON.parse(data.amount) <= result[0].stock_quant) {
 						console.log("\nOrder placed! Total amount is: $" + data.amount * result[0].price);
 
@@ -85,15 +89,26 @@ function buy() {
 						});
 
 						console.log("\ninventory updated!");
-						agains();
-
+					
 					} 
 
-					else {
+					else if (JSON.parse(data.amount) > result[0].stock_quant){
 
 						console.log("\nNot enough inventory!\n");
 						buy();
+						return false;
 					}
+
+					var sql2 = "UPDATE products SET product_sales = '" +
+							(sales + result[0].product_sales) +
+							"' WHERE item_id = '" + data.prod + "'";
+
+						con.query(sql2, function(err, result) {
+							if (err) throw err;
+
+						});
+						console.log("\nSales updated!");
+						agains();
 				})
 			});
 }
