@@ -19,7 +19,7 @@ function start() {
 
 		for (var i = 0; i < result.length; i++) {
 
-			total = result[i].item_id;
+			total = result[i].product_id;
 		}
 	});
 
@@ -74,7 +74,7 @@ function viewProds() {
 
 		for (var i = 0; i < result.length; i++) {
 
-			console.log("\nProduct id: " + result[i].item_id);
+			console.log("\nProduct id: " + result[i].product_id);
 			console.log("Product name: " + result[i].product_name);
 			console.log("Department name: " + result[i].dept_name);
 			console.log("Product price: " + result[i].price);
@@ -100,7 +100,7 @@ function viewLow() {
 			if (result[i].stock_quant < 6) {
 
 				lowflag = true;
-				console.log("\nProduct id: " + result[i].item_id);
+				console.log("\nProduct id: " + result[i].product_id);
 				console.log("Product name: " + result[i].product_name);
 				console.log("Department name: " + result[i].dept_name);
 				console.log("Product price: " + result[i].price);
@@ -162,7 +162,7 @@ function addInv() {
 		])
 		.then(function(data) {
 
-			con.query("SELECT * FROM products where item_id =" + data.prod + "",
+			con.query("SELECT * FROM products where product_id =" + data.prod + "",
 				function(err, result, fields) {
 					if (err) throw err;
 					var sql = "UPDATE products SET stock_quant = '" +
@@ -179,6 +179,16 @@ function addInv() {
 }
 
 function addProd() {
+
+		con.query("SELECT * FROM products", function(err, result, fields) {
+		if (err) throw err;
+
+		for (var i = 0; i < result.length; i++) {
+
+			total = result[i].product_id;
+		}
+	});
+
 
 	inquirer
 		.prompt([
@@ -225,7 +235,7 @@ function addProd() {
 		])
 		.then(function(data) {
 
-			con.query("INSERT INTO products (product_name, dept_name, price, stock_quant, product_sales) values('" + data.prod + "', '" + data.dept + "'," + data.price + "," + data.amount + ", 0)");
+			con.query("INSERT INTO products (product_name, dept_name, price, stock_quant, product_sales, product_id) values('" + data.prod + "', '" + data.dept + "'," + data.price + "," + data.amount + ", 0," + (total + 1) +")");
 
 			console.log("\nPoduct added!");
 			start();

@@ -19,8 +19,8 @@ function display() {
 		if (err) throw err;
 
 		for (var i = 0; i < result.length; i++) {
-			total = result[i].item_id;
-			console.log("\nProduct id: " + result[i].item_id);
+			total = result[i].product_id;
+			console.log("\nProduct id: " + result[i].product_id);
 			console.log("Product name: " + result[i].product_name);
 			console.log("Department name: " + result[i].dept_name);
 			console.log("Product price: " + result[i].price);
@@ -72,7 +72,7 @@ function buy() {
 		])
 		.then(function(data) {
 
-			con.query("SELECT * FROM products where item_id =" + data.prod + "",
+			con.query("SELECT * FROM products where product_id =" + data.prod + "",
 				function(err, result, fields) {
 					if (err) throw err;
 					sales = data.amount * result[0].price;
@@ -101,7 +101,7 @@ function buy() {
 
 					var sql2 = "UPDATE products SET product_sales = '" +
 							(sales + result[0].product_sales) +
-							"' WHERE item_id = '" + data.prod + "'";
+							"' WHERE product_id = '" + data.prod + "'";
 
 						con.query(sql2, function(err, result) {
 							if (err) throw err;
