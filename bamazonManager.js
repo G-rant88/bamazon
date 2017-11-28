@@ -7,7 +7,6 @@ var con = mysql.createConnection({
 	user: "Ben",
 	password: "bgrant88",
 	database: "bamazon"
-
 });
 
 start();
