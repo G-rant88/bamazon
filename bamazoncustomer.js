@@ -10,7 +10,6 @@ var con = mysql.createConnection({
 
 });
 
-
 display();
 
 function display() {
@@ -125,16 +124,12 @@ function agains() {
 		if (again.conf) {
 
 			display();
-
 		} 
 
 		else {
 
 			console.log("\nBYE!!");
 			con.end();
-
 		}
-
 	})
-
 }

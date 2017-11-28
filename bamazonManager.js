@@ -35,8 +35,6 @@ function start() {
 					"add to inventory", "add new product", "exit"
 				],
 				name: "options",
-
-
 			}
 		]).then(function(input) {
 
@@ -61,11 +59,9 @@ function start() {
 				case 'exit':
 					exit();
 					break;
-
 			}
 		})
 }
-
 
 function viewProds() {
 
