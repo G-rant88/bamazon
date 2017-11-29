@@ -1,7 +1,6 @@
 var inquirer = require("inquirer");
 var mysql = require('mysql');
 var table = require('console.table');
-var lowflag = false;
 var total;
 var con = mysql.createConnection({
 	host: "localhost",
@@ -28,8 +27,6 @@ function start() {
 			total = result[i].product_id;
 		}
 	});
-
-	lowflag = false;
 
 	inquirer
 		.prompt([
@@ -75,21 +72,11 @@ function viewProds() {
 		if (err) throw err;
 
 		console.table(result)
-		// for (var i = 0; i < result.length; i++) {
-
-		// 	console.log("\nProduct id: " + result[i].product_id);
-		// 	console.log("Product name: " + result[i].product_name);
-		// 	console.log("Department name: " + result[i].dept_name);
-		// 	console.log("Product price: $" + result[i].price);
-		// 	console.log("Stock quantity: " + result[i].stock_quant);
-		// 	console.log("Product Sales: $" + result[i].product_sales);
-		// }
 	});
 
 	setTimeout(function() {
 
 		start();
-
 	}, 500);
 }
 
@@ -97,19 +84,7 @@ function viewLow() {
 
 	con.query("SELECT product_id, product_name, dept_name, price, stock_quant, product_sales FROM products where stock_quant < '6'", function(err, result, fields) {
 
-		 // for (var i = 0; i < result.length; i++) {
-
-			// if (result[i].stock_quant < 6) {
-
 				console.table(result);
-				// console.log("\nProduct id: " + result[i].product_id);
-				// console.log("Product name: " + result[i].product_name);
-				// console.log("Department name: " + result[i].dept_name);
-				// console.log("Product price: " + result[i].price);
-				// console.log("Stock quantity: " + result[i].stock_quant);
-			// 	// console.log("Product Sales: " + result[i].product_sales);
-			// }
-		 // }
 
 		setTimeout(function() {
 
@@ -163,8 +138,7 @@ function addInv() {
 
 					con.query(sql, function(err, result) {
 						if (err) throw err;
-					});
-					
+					});	
 				});
 			console.log("\ninventory updated!");
 					start();
