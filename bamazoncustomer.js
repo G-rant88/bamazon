@@ -105,10 +105,12 @@ function buy() {
 						con.query(sql2, function(err, result) {
 							if (err) throw err;
 
+							console.log("\nSales updated!");
+						agains();
+
 						});
 					});
-			console.log("\nSales updated!");
-						agains();
+			
 			});
 }
 
