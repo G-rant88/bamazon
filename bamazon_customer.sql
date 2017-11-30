@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `departments`
+-- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `departments`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `departments` (
-  `department_id` int(11) NOT NULL AUTO_INCREMENT,
-  `dept_name` varchar(30) DEFAULT NULL,
-  `over_head_costs` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `departments`
+-- Dumping data for table `customer`
 --
 
-LOCK TABLES `departments` WRITE;
-/*!40000 ALTER TABLE `departments` DISABLE KEYS */;
-INSERT INTO `departments` VALUES (1,'electronics',1000.00),(2,'furniture',800.00),(3,'food supplies',500.00),(4,'produce',400.00),(5,'kitchen',600.00),(6,'clothing',700.00),(7,'food',500.00),(8,'jewlery',900.00),(9,'watches',500.00),(10,'shoes',300.00),(11,'toys',350.00);
-/*!40000 ALTER TABLE `departments` ENABLE KEYS */;
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,'Benji','gg');
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -2,7 +2,9 @@ var inquirer = require("inquirer");
 var mysql = require('mysql');
 var table = require('console.table');
 var total;
-var pSales;
+var namey;
+var pwy;
+var deptArr = [];
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "Ben",
@@ -13,10 +15,114 @@ var con = mysql.createConnection({
 con.connect( function(err)
 {
 	if(!err){
-	start();
+	ask();
 }
 
 });
+
+function ask() {
+
+  console.log("\nWelcome to Bamazon Supervisor Edition!\n");
+
+  inquirer
+    .prompt([{
+      type: "confirm",
+      message: "Do already have a supervisor account?",
+      name: "conf",
+      default: true
+    }])
+    .then(function(acc) {
+
+      if (acc.conf) {
+
+        signin();
+      } 
+
+      else {
+
+        create();
+      }
+
+    });
+
+}
+
+function create() {
+
+  inquirer
+    .prompt([{
+      type: "input",
+      message: "Please create a username:",
+      name: "user"
+    }, {
+      type: "password",
+      message: "Plese create a password:",
+      name: "pws",
+      hidden: true,
+      mask: "*"
+    }])
+    .then(function(sign) {
+
+        var sql = "INSERT INTO supervisor (username, password) VALUES ?";
+        values = [
+
+          [sign.user, sign.pws]
+
+        ];
+
+        con.query(sql, [values], function(err, result) {
+          if (err) throw err;
+
+  signin();
+      });
+    });
+}
+
+function signin() {
+
+  inquirer
+    .prompt([{
+      type: "input",
+      message: "Please sign in with your username:",
+      name: "user2"
+    }, {
+      type: "password",
+      message: "Please sign in with your password:",
+      name: "pws2",
+      hidden: true,
+      mask: "*"
+    }])
+
+  .then(function(sign2) {
+
+    con.query("SELECT * FROM supervisor", function(err, result, fields) {
+      if (err) throw err;
+
+      for (var i = 0; i < result.length; i++) {
+
+        if (sign2.user2 === result[i].username && sign2.pws2 === result[i].password) {
+
+          console.log("\nWelcome " + sign2.user2 + "\n");
+     
+          namey = sign2.user2;
+          pwy = sign2.pws2;
+       
+          start();
+          return false;
+
+        }
+
+      };
+
+      console.log("Sorry, wrong username/password. Try again:\n");
+      signin();
+      return false;
+
+    });
+
+  });
+
+}
 
 function start() {
 
@@ -61,21 +167,11 @@ function start() {
 
 function viewSales() {
 
-	con.query("SELECT department_id, dept_name, over_head_costs, product_sales FROM departments", function(err, result, fields) {
+	con.query("SELECT departments.department_id, departments.dept_name, departments.over_head_costs, SUM(product_sales) AS product_sales, (SUM(product_sales) - departments.over_head_costs) as total_profit from products right JOIN departments on departments.dept_name = products.dept_name GROUP BY departments.department_id;", function(err, result, fields) {
 		if (err) throw err;
 
-		console.table(result);
-
-		// for (var i = 0; i < result.length; i++) {
-
-		// 	console.table([{
-		// 		department_id: result[i].department_id,
-		// 		department_name: result[i].dept_name,
-		// 		over_head_costs: result[i].over_head_costs,
-		// 		product_sales: result[i].product_sales
-		// 	}])
-		// }
-		start();
+		 console.table(result);
+		 	start();
 	})
 }
 
@@ -102,17 +198,19 @@ function newDept() {
 
 		}]).then(function(input) {
 
-			con.query("INSERT INTO departments(department_id, dept_name, over_head_costs, product_sales) values(" + (total + 1) + ",'" + input.names + "'," + input.over + ", 0)"), (function(err, result, fields) {
+			con.query("INSERT INTO departments(department_id, dept_name, over_head_costs) values(" + (total + 1) + ", '" + input.names + "', " + JSON.parse(input.over) + ")"), (function(err, result, fields) {
 	
-		});
+	
+});
+			console.log("\nDepartment added.");
+			console.log("\nPlease have your Manager add a product to the new department.");
 
-			console.log("\nDepartment added");
-			start();
+				start();
 	});
 }
 
 function exit() {
 
-	console.log("\nBYE!!");
+	console.log("\nGoodbye " + namey);
 	con.end();
 }
