@@ -32,6 +32,7 @@ A supervisor can create an account, and login. Then, they will be prompted to ei
 <li>all of the product info is displayed</li>
 <li>The product sales are created on the fly by adding all the sales from each department and joining into the departments table</li>
 <li>The total profits are created on the fly by adding all the sales from each department, subtracting the over head costs and joining into the departments table</li>
+<li>exit quits the app</li>
 </ul>
 video demo: (https://www.youtube.com/watch?v=ugUaFfWm7NE)
 
