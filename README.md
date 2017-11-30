@@ -3,7 +3,8 @@
 
 <h2>Customer</h2>
 A customer can create an account, login, and then view the products. Then, they will be promted to buy one by id, and the quantity they want.<br>
-They are then asked if they want to see the products again, if they say yes they can buy another, if not they will exit the app.<br>
+They are then asked if they want to see the products again, if they say yes they can buy another, if not they will exit the app.
+<br>
 <ul>
 <li>the account username/password is saved in its own table</li>
 <li>once creating an account you can login with the same account</li>
@@ -12,7 +13,8 @@ They are then asked if they want to see the products again, if they say yes they
 video demo: (https://www.youtube.com/watch?v=4htim3aFy7o)
 
 <h2>Manager</h2>
-A manager can create an account, and login. Then, they will be prompted to either view products, low inventory, add to inventory, add products, or exit the app.<br>
+A manager can create an account, and login. Then, they will be prompted to either view products, low inventory, add to inventory, add products, or exit the app.
+<br>
 <ul>
 <li>the account username/password is saved in its own table</li>
 <li>once creating an account you can login with the same account</li>
@@ -25,7 +27,8 @@ A manager can create an account, and login. Then, they will be prompted to eithe
 video demo: (https://www.youtube.com/watch?v=JNcJgZ6jur4)
 
 <h2>Supervisor</h2>
-A supervisor can create an account, and login. Then, they will be prompted to either view product sales by dept, create a new dept, or exit the app.<br>
+A supervisor can create an account, and login. Then, they will be prompted to either view product sales by dept, create a new dept, or exit the app.
+<br>
 <ul>
 <li>the account username/password is saved in its own table</li>
 <li>once creating an account you can login with the same account</li>
