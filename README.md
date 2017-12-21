@@ -1,4 +1,4 @@
-<h1>This is my Bamazon App</h1>
+<h1>This is my Node Bamazon App</h1>
 <p>There's a Customer version, Manager version, and Supervisor version.</p>
 
 <h2>Customer</h2>
