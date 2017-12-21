@@ -1,4 +1,5 @@
 <h1>This is my Node Bamazon App</h1>
+<p>It's entirely back-end, and uses mysql and node js.</p>
 <p>There's a Customer version, Manager version, and Supervisor version.</p>
 
 <h2>Customer</h2>
