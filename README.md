@@ -26,7 +26,8 @@ A manager can create an account, and login. Then, they will be prompted to eithe
 <li>add new product creates a new product, adds it to a department, and adds the chosen quantity</li>
 <li>exit quits the app</li>
 </ul>
-video demo: (https://www.youtube.com/watch?v=JNcJgZ6jur4)
+<img src="https://media.giphy.com/media/26Ff6CpLlLyQZXv8s/giphy.gif" alt="gif">
+full video demo: (https://www.youtube.com/watch?v=JNcJgZ6jur4)
 
 <h2>Supervisor</h2>
 A supervisor can create an account, and login. Then, they will be prompted to either view product sales by dept, create a new dept, or exit the app.
@@ -39,6 +40,7 @@ A supervisor can create an account, and login. Then, they will be prompted to ei
 <li>The total profits are created on the fly by adding all the sales from each department, subtracting the over head costs and joining into the departments table</li>
 <li>exit quits the app</li>
 </ul>
-video demo: (https://www.youtube.com/watch?v=ugUaFfWm7NE)
+<img src="https://media.giphy.com/media/26FeU7xf3A4VYnKi4/giphy.gif" alt="gif">
+full video demo: (https://www.youtube.com/watch?v=ugUaFfWm7NE)
 
 
