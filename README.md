@@ -11,7 +11,8 @@ They are then asked if they want to see the products again, if they say yes they
 <li>once creating an account you can login with the same account</li>
 <li>the product quantity and sales are updated in the products table</li>
 </ul>
-video demo: (https://www.youtube.com/watch?v=4htim3aFy7o)
+<img src="https://giphy.com/gifs/xT1R9TSREdgo03yenm"
+full video demo: (https://www.youtube.com/watch?v=4htim3aFy7o)
 
 <h2>Manager</h2>
 A manager can create an account, and login. Then, they will be prompted to either view products, low inventory, add to inventory, add products, or exit the app.
