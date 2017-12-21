@@ -11,7 +11,7 @@ They are then asked if they want to see the products again, if they say yes they
 <li>once creating an account you can login with the same account</li>
 <li>the product quantity and sales are updated in the products table</li>
 </ul>
-<img src="https://giphy.com/gifs/xT1R9TSREdgo03yenm"
+<img src="https://giphy.com/gifs/xT1R9TSREdgo03yenm" alt="gif">
 full video demo: (https://www.youtube.com/watch?v=4htim3aFy7o)
 
 <h2>Manager</h2>
